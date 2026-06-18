@@ -1,0 +1,74 @@
+{
+  "name": "codelens-ai",
+  "displayName": "CodeLens AI",
+  "description": "CodeLens AI is an intelligent VS Code extension designed to help developers seamlessly understand, explore, and document their projects directly from their editor.",
+  "version": "1.0.0",
+  "publisher": "johnkristanf",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codelens-ai-sidebar",
+          "title": "CodeLens AI",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "codelens-ai-sidebar": [
+        {
+          "type": "webview",
+          "id": "codelens-ai.chatView",
+          "name": "Chat"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codelens-ai.helloWorld",
+        "title": "Hello World"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "ts-loader": "^9.5.1",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.330.0"
+  }
+}
